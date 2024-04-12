@@ -13,3 +13,7 @@ RegisterCommand("registerwallet", function ()
     local id = GetPlayerServerId(PlayerId())
     TriggerServerEvent("WrenchWallet:RegisterWallet", id)
 end)
+
+AddEventHandler("ND:characterLoaded", function(character)
+    ExecuteCommand("registerwallet")
+end)
