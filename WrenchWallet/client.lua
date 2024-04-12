@@ -14,6 +14,6 @@ RegisterCommand("registerwallet", function ()
     TriggerServerEvent("WrenchWallet:RegisterWallet", id)
 end)
 
-AddEventHandler("ND:characterLoaded", function(character)
+RegisterNetEvent("ND:characterLoaded", function(character)
     ExecuteCommand("registerwallet")
 end)
