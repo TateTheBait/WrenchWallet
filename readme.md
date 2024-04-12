@@ -1,6 +1,6 @@
 Dependency: OX_Inventory And NDCORE
 
-To install: Add the image to the images folder in the inventory 
+To install: Add the image to the images folder in the inventory (No item adding necessary, the script makes the item itself)
 Then install file like normal
 
 
