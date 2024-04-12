@@ -22,7 +22,7 @@ RegisterNetEvent("WrenchWallet:RegisterWallet", function(plrid)
                 weight = 2000,
                 owner = false
             }
-            exports.ox_inventory:RegisterStash(stash.id, stash.label, stash.slots, stash.weight, stash.owner)
+            exports.ox_inventory:RegisterStash(stash.id, stash.label, stash.slots, stash.weight, stash.owner) -- DO NOT CHANGE
         end
     end
 end)
