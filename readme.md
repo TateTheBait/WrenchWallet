@@ -1,4 +1,4 @@
-Dependency: OX_Inventory
+Dependency: OX_Inventory And NDCORE
 
 To install: Add the image to the images folder in the inventory 
 Then install file like normal
