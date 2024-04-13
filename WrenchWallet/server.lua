@@ -10,10 +10,11 @@ end)
 
 RegisterNetEvent("WrenchWallet:RegisterWallet", function(plrid)
     if exports.ox_inventory:GetItemCount(plrid, "wrenchwallet") == 0 then
-            
+        local identifier = GetPlayerIdentifier(plrid, 1)
+        local specid = tostring(math.random(1,1000000))
         repeat
-            local identifier = GetPlayerIdentifier(plrid, 1)
-            local specid = tostring(math.random(1,1000000))
+            identifier = GetPlayerIdentifier(plrid, 1)
+            specid = tostring(math.random(1,1000000))
         until not exports.ox_inventory:GetInventory(tostring(identifier .. specid))
             
         local metadata = {walletid2 = (identifier .. specid), label = "Wallet", image = "wrenchwallet"} -- DO NOT CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
