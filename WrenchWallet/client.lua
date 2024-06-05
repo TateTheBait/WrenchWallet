@@ -8,12 +8,3 @@ RegisterCommand("openwallet", function ()
     local id = GetPlayerServerId(PlayerId())
     TriggerServerEvent("WrenchWallet:Open", id)
 end)
-
-RegisterCommand("registerwallet", function ()
-    local id = GetPlayerServerId(PlayerId())
-    TriggerServerEvent("WrenchWallet:RegisterWallet", id)
-end)
-
-RegisterNetEvent("ND:characterLoaded", function(character)
-    ExecuteCommand("registerwallet")
-end)
