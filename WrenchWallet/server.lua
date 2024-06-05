@@ -9,13 +9,21 @@ end)
 
 
 RegisterNetEvent("WrenchWallet:RegisterWallet", function(plrid)
+    
+end)
+
+
+AddEventHandler("ND:characterLoaded", function(character)
+    if not character then return end
+    Wait(1000)
+    local plrid = character.source
+    local identifier = character.id
     if exports.ox_inventory:GetItemCount(plrid, "wrenchwallet") == 0 then
-        local identifier = GetPlayerIdentifier(plrid, 1)
         local specid = tostring(math.random(1,1000000))
         repeat
-            identifier = GetPlayerIdentifier(plrid, 1)
             specid = tostring(math.random(1,1000000))
         until not exports.ox_inventory:GetInventory(tostring(identifier .. specid))
+        SetResourceKvp(tostring(identifier), tostring(identifier .. specid))
             
         local metadata = {walletid2 = (identifier .. specid), label = "Wallet", image = "wrenchwallet"} -- DO NOT CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         exports.ox_inventory:AddItem(plrid, "wrenchwallet", 1, metadata)
@@ -29,5 +37,10 @@ RegisterNetEvent("WrenchWallet:RegisterWallet", function(plrid)
             }
             exports.ox_inventory:RegisterStash(stash.id, stash.label, stash.slots, stash.weight, stash.owner) -- DO NOT CHANGE
         end
+    else
+        local savedhash = GetResourceKvpString(tostring(identifier))
+        local metadata = {walletid2 = savedhash, label = "Wallet", image = "wrenchwallet"}
+        print(savedhash)
+        exports.ox_inventory:SetMetadata(plrid, exports.ox_inventory:GetSlotWithItem(plrid, "wrenchwallet"), metadata)
     end
 end)
